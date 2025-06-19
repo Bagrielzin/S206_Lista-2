@@ -46,3 +46,12 @@ Repositório da segunda lista do laboratório de S206
   "ativo":1
 }
 
+#Criar um usuario sem o campo email:
+{
+  "nome": "{{$randomFullName}}",
+  "email": "",
+  "password": "{{$randomPassword}}",
+  "acesso": "ALUNO",
+  "ativo":1
+}
+
