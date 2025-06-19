@@ -46,7 +46,7 @@ Conteúdo do body:
 
 <br>
 
-## 2 - Criar um usuario do tipo aluno faltando o campo senha:
+## 2 - Criar um usuario do tipo aluno faltando o campo senha (negativo):
 ### POST
 Endpoint: https://fetin-api.confianopai.com/api/v1/Aluno/add
 <br>
