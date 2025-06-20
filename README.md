@@ -136,7 +136,7 @@ Conteúdo do body:
 
 <br>
 
-## Teste 1 - Lista de pojetos
+## Teste 1 - Lista de projetos
 ### GET
 Endpoint: https://fetin-api.confianopai.com/api/v1/Time/all
 
@@ -283,6 +283,121 @@ Endpoint: https://fetin-api.confianopai.com/api/v1/Time/UpdateStatus
     ]
 },
 ```
+<br>
+<br>
+
+# Testes - Orientador
 
 <br>
+
+## Teste 1 - Adicionar orientador
+### GET
+Endpoint: https://fetin-api.confianopai.com/api/v1/Orientador/add
+<br>
+```json
+"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"password\": \"{{$randomPassword}}\",\r\n  \"acesso\": \"ORIENTADOR\",\r\n  \"ativo\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Orientador/add",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Orientador",
+						"add"
+					]
+				}
+			},
+````
+
+<br>
+
+## Teste 2 - Listar orientadores
+### GET
+Endpoint: https://fetin-api.confianopai.com/api/v1/Orientador/add
+<br>
+```json
+"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"{{$randomFullName}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"password\": \"{{$randomPassword}}\",\r\n  \"acesso\": \"ALUNO\",\r\n  \"ativo\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Orientador/all",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Orientador",
+						"all"
+					]
+				}
+			},
+```
+## Teste 3 - Atualizar orientador
+### PUT
+Endpoint: https://fetin-api.confianopai.com/api/v1/Orientador/update
+<br>
+
+```json
+"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Jenny ATT\",\r\n  \"email\": \"Solon37@gmail.com\",\r\n  \"password\": \"{bcrypt}$2a$10$43WAYdHbjwVfh/PgzqGKn.UY.OaFfeVyR.bUifH68kAKoJL5OyrBG\",\r\n  \"acesso\": \"ORIENTADOR\",\r\n  \"ativo\":1\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Orientador/update",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Orientador",
+						"update"
+					]
+				}
+			},
+```
+## Teste 4 - Deletar orientador
+### POST
+Endpoint: https://fetin-api.confianopai.com/api/v1/Orientador/delete
+<br>
+```json
+"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Orientador/delete",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Orientador",
+						"delete"
+					]
+				}
+			},
+```
+## Teste 5 - mostrar os times
+### GET
+Endpoint: https://fetin-api.confianopai.com/api/v1/Orientador/teams
 
