@@ -154,3 +154,135 @@ Endpoint: https://fetin-api.confianopai.com/api/v1/Time/9999
 
 <br>
 
+## Teste 4 - Criar um novo time sem alunos
+### POST
+Endpoint: https://fetin-api.confianopai.com/api/v1/Time/create
+<br>
+```json
+"body": {
+    "mode": "formdata",
+    "formdata": [
+        {
+            "key": "titulo",
+            "value": "Time sem aluno",
+            "type": "text"
+        },
+        {
+            "key": "orientador_email",
+            "value": "felipeb@inatel.br",
+            "type": "text"
+        },
+        {
+            "key": "status",
+            "value": "ativo",
+            "type": "text"
+        },
+        {
+            "key": "paralela",
+            "value": "paralela",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno1",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno2",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno3",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno4",
+            "value": "",
+            "type": "text"
+        }
+    ]
+    },
+```
+
+<br>
+
+## Teste 5 - Criar um time com aluno repetido
+### POST
+Endpoint: https://fetin-api.confianopai.com/api/v1/Time/create
+<br>
+```json
+"body": {
+    "mode": "formdata",
+    "formdata": [
+        {
+            "key": "titulo",
+            "value": "Time com aluno repetido",
+            "type": "text"
+        },
+        {
+            "key": "orientador_email",
+            "value": "felipeb@inatel.br",
+            "type": "text"
+        },
+        {
+            "key": "status",
+            "value": "ativo",
+            "type": "text"
+        },
+        {
+            "key": "paralela",
+            "value": "paralela",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno1",
+            "value": "16375171Aluno@inatel.br",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno2",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno3",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "key": "email_aluno4",
+            "value": "",
+            "type": "text"
+        }
+    ]
+    },
+```
+
+<br>
+
+## Teste 6 - Atualiza status da equipe 442
+### PUT
+Endpoint: https://fetin-api.confianopai.com/api/v1/Time/UpdateStatus
+<br>
+```json
+"body": {
+    "mode": "formdata",
+    "formdata": [
+        {
+            "key": "numeroGrupo",
+            "value": "442",
+            "type": "text"
+        },
+        {
+            "key": "status",
+            "value": "inativo",
+            "type": "text"
+        }
+    ]
+},
+```
+
+<br>
+
