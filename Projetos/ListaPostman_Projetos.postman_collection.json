@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "102c0bab-5f6f-4d16-bed0-81fdd3b9e9f9",
+		"_postman_id": "7735bce8-f27f-4b65-9a59-07468b1d22c9",
 		"name": "ListaPostman_Projetos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "44960080",
-		"_collection_link": "https://gabriel-4646105.postman.co/workspace/Gabriel's-Workspace~996c9288-7f08-400a-852f-22221a0e3233/collection/44960080-102c0bab-5f6f-4d16-bed0-81fdd3b9e9f9?action=share&source=collection_link&creator=44960080"
+		"_exporter_id": "45039699"
 	},
 	"item": [
 		{
@@ -148,6 +147,238 @@
 						"v1",
 						"Time",
 						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teste 4 - Criar um novo time sem alunos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code indica erro (400 ou 500)\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([400, 422, 500]);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "titulo",
+							"value": "Time sem aluno",
+							"type": "text"
+						},
+						{
+							"key": "orientador_email",
+							"value": "felipeb@inatel.br",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "ativo",
+							"type": "text"
+						},
+						{
+							"key": "paralela",
+							"value": "paralela",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno1",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno2",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno3",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno4",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/create",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teste 5 - Criar um time com aluno repetido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code deve ser 500 (erro esperado)\", function () {\r",
+							"    pm.expect(pm.response.code).to.eql(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Mensagem de erro sobre aluno duplicado\", function () {\r",
+							"    const errorText = pm.response.text();\r",
+							"    pm.expect(errorText).to.include(\"mesmo aluno duas vezes\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "titulo",
+							"value": "Time com aluno repetido",
+							"type": "text"
+						},
+						{
+							"key": "orientador_email",
+							"value": "felipeb@inatel.br",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "ativo",
+							"type": "text"
+						},
+						{
+							"key": "paralela",
+							"value": "paralela",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno1",
+							"value": "16375171Aluno@inatel.br",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno2",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno3",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno4",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/create",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teste 6 - Atualiza status da equipe 442",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Mensagem de sucesso recebida\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Atualizado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numeroGrupo",
+							"value": "442",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "inativo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/UpdateStatus",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"UpdateStatus"
 					]
 				}
 			},
